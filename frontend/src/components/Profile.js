@@ -29,7 +29,7 @@ const FollowUserButton = (props) => {
     return null;
   }
 
-  let classes = "btn btn-sm action-btn";
+  let classes = "btn btn-sm action-btn ";
   if (props.user.following) {
     classes += " btn-secondary";
   } else {
@@ -127,7 +127,7 @@ class Profile extends React.Component {
       <div className="profile-page">
         <div className="container">
           <div className="row p-4 text-center">
-            <div className="user-info col-xs-12 col-md-8 offset-md-2">
+            <div className=" col-xs-12 col-md-8 offset-md-2 p-auto">
               <img
                 src={profile.image}
                 className="user-img"
@@ -143,6 +143,7 @@ class Profile extends React.Component {
                 follow={this.props.onFollow}
                 unfollow={this.props.onUnfollow}
               />
+  
             </div>
           </div>
         </div>
