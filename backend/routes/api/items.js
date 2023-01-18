@@ -16,7 +16,6 @@ router.param("item", function(req, res, next, slug) {
       }
 
       req.item = item;
-
       return next();
     })
     .catch(next);
@@ -147,7 +146,9 @@ router.post("/", auth.required, function(req, res, next) {
       var item = new Item(req.body.item);
 
       item.seller = user;
-
+      if(!item.image) {
+        item.image = "/placeholder.png"
+      }
       return item.save().then(function() {
         sendEvent('item_created', { item: req.body.item })
         return res.json({ item: item.toJSONFor(user) });
